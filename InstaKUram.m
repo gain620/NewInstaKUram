@@ -22,7 +22,7 @@ function varargout = InstaKUram(varargin)
 
 % Edit the above text to modify the response to help InstaKUram
 
-% Last Modified by GUIDE v2.5 20-Nov-2014 18:01:20
+% Last Modified by GUIDE v2.5 28-Nov-2014 12:23:28
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -179,6 +179,43 @@ imshow(img_bright);
 % --- Executes during object creation, after setting all properties.
 function slider1_CreateFcn(hObject, eventdata, handles)
 % Brightness Change
+
+% Hint: slider controls usually have a light gray background.
+if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor',[.9 .9 .9]);
+end
+
+
+% --- Executes on key press with focus on slider1 and none of its controls.
+function slider1_KeyPressFcn(hObject, eventdata, handles)
+% hObject    handle to slider1 (see GCBO)
+% eventdata  structure with the following fields (see UICONTROL)
+%	Key: name of the key that was pressed, in lower case
+%	Character: character interpretation of the key(s) that was pressed
+%	Modifier: name(s) of the modifier key(s) (i.e., control, shift) pressed
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on button press in pushbutton10.
+function pushbutton10_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton10 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on slider movement.
+function slider2_Callback(hObject, eventdata, handles)
+global img2;
+img2(:,:,1) = img2(:,:,1) + get(hObject, 'Value');
+axes(handles.axes1);
+imshow(img2);
+
+
+% --- Executes during object creation, after setting all properties.
+function slider2_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to slider2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
 
 % Hint: slider controls usually have a light gray background.
 if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
