@@ -22,7 +22,11 @@ function varargout = InstaKUram(varargin)
 
 % Edit the above text to modify the response to help InstaKUram
 
+<<<<<<< HEAD
 % Last Modified by GUIDE v2.5 04-Dec-2014 15:46:52
+=======
+% Last Modified by GUIDE v2.5 28-Nov-2014 12:23:28
+>>>>>>> a625cc471bd37c4c5acae8200c0055783c459b71
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -197,20 +201,33 @@ function slider1_KeyPressFcn(hObject, eventdata, handles)
 
 % --- Executes on button press in pushbutton10.
 function pushbutton10_Callback(hObject, eventdata, handles)
+<<<<<<< HEAD
 global img;
 img_hor = flipdim(img ,2);           %# horizontal flip
 %I3 = flipdim(I ,1);           %# vertical flip
 %I4 = flipdim(I3,2);    %# horizontal+vertical flip
 axes(handles.axes1);
 imshow(img_hor);
+=======
+% hObject    handle to pushbutton10 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+>>>>>>> a625cc471bd37c4c5acae8200c0055783c459b71
 
 
 % --- Executes on slider movement.
 function slider2_Callback(hObject, eventdata, handles)
+<<<<<<< HEAD
 global img;
 img(:,:,1) = img(:,:,1) + get(hObject, 'Value');
 axes(handles.axes1);
 imshow(img);
+=======
+global img2;
+img2(:,:,1) = img2(:,:,1) + get(hObject, 'Value');
+axes(handles.axes1);
+imshow(img2);
+>>>>>>> a625cc471bd37c4c5acae8200c0055783c459b71
 
 
 % --- Executes during object creation, after setting all properties.
@@ -223,6 +240,7 @@ function slider2_CreateFcn(hObject, eventdata, handles)
 if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor',[.9 .9 .9]);
 end
+<<<<<<< HEAD
 
 
 % --- Executes on button press in pushbutton11.
@@ -237,3 +255,5 @@ function pushbutton12_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton12 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+=======
+>>>>>>> a625cc471bd37c4c5acae8200c0055783c459b71
