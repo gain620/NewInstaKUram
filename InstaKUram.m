@@ -22,7 +22,7 @@ function varargout = InstaKUram(varargin)
 
 % Edit the above text to modify the response to help InstaKUram
 
-% Last Modified by GUIDE v2.5 20-Nov-2014 18:01:20
+% Last Modified by GUIDE v2.5 04-Dec-2014 15:46:52
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -151,11 +151,10 @@ axes(handles.axes1);
 imshow(img_blur);
 
 
-% --- Executes on button press in pushbutton8.
+% --- Executes on button press in flip filter.
 function pushbutton8_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton8 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
+
+
 
 
 % --- Executes on button press in reset image.
@@ -169,9 +168,9 @@ imshow(img2);
 % --- Executes on slider movement.
 function slider1_Callback(hObject, eventdata, handles)
 % Slide to change brightness
-global img2;
+global img;
 val = 0.5 * get(hObject, 'Value') - 0.5;
-img_bright = img2 + val;
+img_bright = img + val;
 axes(handles.axes1);
 imshow(img_bright);
 
@@ -184,3 +183,57 @@ function slider1_CreateFcn(hObject, eventdata, handles)
 if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor',[.9 .9 .9]);
 end
+
+
+% --- Executes on key press with focus on slider1 and none of its controls.
+function slider1_KeyPressFcn(hObject, eventdata, handles)
+% hObject    handle to slider1 (see GCBO)
+% eventdata  structure with the following fields (see UICONTROL)
+%	Key: name of the key that was pressed, in lower case
+%	Character: character interpretation of the key(s) that was pressed
+%	Modifier: name(s) of the modifier key(s) (i.e., control, shift) pressed
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on button press in pushbutton10.
+function pushbutton10_Callback(hObject, eventdata, handles)
+global img;
+img_hor = flipdim(img ,2);           %# horizontal flip
+%I3 = flipdim(I ,1);           %# vertical flip
+%I4 = flipdim(I3,2);    %# horizontal+vertical flip
+axes(handles.axes1);
+imshow(img_hor);
+
+
+% --- Executes on slider movement.
+function slider2_Callback(hObject, eventdata, handles)
+global img;
+img(:,:,1) = img(:,:,1) + get(hObject, 'Value');
+axes(handles.axes1);
+imshow(img);
+
+
+% --- Executes during object creation, after setting all properties.
+function slider2_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to slider2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: slider controls usually have a light gray background.
+if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor',[.9 .9 .9]);
+end
+
+
+% --- Executes on button press in pushbutton11.
+function pushbutton11_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton11 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on button press in pushbutton12.
+function pushbutton12_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton12 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
